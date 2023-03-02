@@ -2,13 +2,19 @@ $primary-color: #007bff; // set primary color to blue
 $secondary-color: #6c757d; // set secondary color to gray
 
 @import "../navbar/navbar.scss";
-@import "../products/product.scss";
+@import "../inventory/inventoryItem.scss";
 
 .page {
     max-width: 800px;
     margin: 0 auto;
     padding: 1rem;
     background-color: $secondary-color; // set page background to secondary color
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -18,4 +24,4 @@ body {
 a {
     color: inherit;
     text-decoration: none;
-  }
+}
