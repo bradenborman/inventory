@@ -1,0 +1,19 @@
+nav {
+    background-color: $primary-color; // set navbar background to primary color
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1.2rem;
+
+    a {
+        color: white;
+        text-decoration: none;
+        margin-right: 1rem;
+    }
+
+    .active {
+        font-weight: bold;
+    }
+}

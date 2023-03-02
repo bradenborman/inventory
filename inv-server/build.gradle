@@ -1,0 +1,71 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.10-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'borman'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	runtimeOnly 'com.h2database:h2:1.4.200'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+task copyClient(dependsOn: ":inv-client:clientBuild") {
+
+	doFirst {
+		delete "src/main/resources/static"
+		delete "src/main/resources/templates"
+	}
+
+	doLast {
+		copy {
+			from new File(project(":inv-client").getProjectDir(), "build")
+			into "src/main/resources/static"
+		}
+		copy {
+			from new File(project(":inv-client").getProjectDir(), "build/index.html")
+			into "src/main/resources/templates"
+		}
+		copy {
+			from new File(project(":inv-client").getProjectDir(), "build/error.html")
+			into "src/main/resources/templates"
+		}
+	}
+}
+
+//doesnt work lol
+task finalizeBuild(type: Copy) {
+	dependsOn 'build'
+	from "${buildDir}/libs/inv-server-${version}.jar"
+	into "${buildDir}/libs"
+	rename "inv-server-${version}.war", "inventory.jar"
+	delete "inv-server-${version}.war"
+}
+
+processResources.dependsOn(copyClient)
+clean.dependsOn(":inv-client:clientClean")
+build.finalizedBy(finalizeBuild)
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
