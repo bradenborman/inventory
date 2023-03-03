@@ -56,7 +56,7 @@ const config = {
       filename: "./index.html",
     }),
     new CopyPlugin([
-      // { from: "src/img", to: "img" },
+      { from: "src/img", to: "img" },
       // { from: "src/error.html", to: "" },
       // { from: "src/lib/fonts", to: "fonts" },
       // { from: "src/lib/webfonts", to: "webfonts" },

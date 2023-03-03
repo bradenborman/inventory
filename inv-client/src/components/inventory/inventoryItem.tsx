@@ -21,7 +21,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
                 <div className="inventory-item__name">{name}</div>
                 <div className="inventory-item__price">Price: ${price.toFixed(2)}</div>
                 <div className="inventory-item__quantity">Quantity: {quantity}</div>
-                <img src={image} alt={name} className="inventory-item__image" />
+                <img loading="lazy" src={image} alt={name} className="inventory-item__image" />
                 <div className="inventory-item__description">{description}</div>
                 {tags && (
                     <div className="inventory-item__tags">

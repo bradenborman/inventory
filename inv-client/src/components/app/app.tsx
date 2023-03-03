@@ -16,27 +16,30 @@ const App: React.FC = () => {
     }
 
 
-    const items: JSX.Element[] = inventoryItems.map((item: any, index: React.Key) => {
-        return (
-            <InventoryItem
-                key={index}
-                name={item.name}
-                description={item.description}
-                price={item.price}
-                quantity={item.quantity}
-                image={item.image}
-                handleClick={e => {
-                    handleSpotLightChange(item)
-                }}
-            />
-        )
-    });
+    const items: JSX.Element[] = useMemo(() => {
+        return inventoryItems.map((item: any, index: React.Key) => {
+            return (
+                <InventoryItem
+                    key={index}
+                    name={item.name}
+                    description={item.description}
+                    price={item.price}
+                    quantity={item.quantity}
+                    image={item.image}
+                    handleClick={e => {
+                        handleSpotLightChange(item)
+                    }}
+                />
+            )
+        });
+    }, []);
+
 
     const spotlightItemJSX: JSX.Element | null = useMemo(() => {
         if (spotlightItem == null)
             return null;
         return (
-            <Spotlight tags={["Baseball", "Auto"]} name={spotlightItem.name} quantity={spotlightItem.quantity} price={spotlightItem.price}
+            <Spotlight tags={spotlightItem.tags} name={spotlightItem.name} quantity={spotlightItem.quantity} price={spotlightItem.price}
                 description={spotlightItem.description} image={spotlightItem.image}
                 onClose={e => setSpotlightItem(null)}
             />

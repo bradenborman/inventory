@@ -24,7 +24,9 @@ const Spotlight: React.FC<SpotlightItemProps> = ({
             <div className='spotlight__content'>
                 <h2>{name}</h2>
                 <p className='price'> ${price}</p>
-                <img src={image} alt={name} />
+                <div className='image-container'>
+                    <img src={image} alt={name} />
+                </div>
                 <p className='description'>{description}</p>
                 <ul>
                     {tags.map(tag => (
