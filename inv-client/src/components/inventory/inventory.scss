@@ -152,3 +152,53 @@
         }
     }
 }
+
+
+
+@media screen and (max-width: 767px) {
+    .inventory-container {
+        flex-direction: column;
+
+
+        &.spotlight-open .spotlight {
+            width: 100%;
+        }
+
+        &.spotlight-open .inventory-item-container {
+            width: 0%;
+            flex: 0;
+        }
+
+        .inventory-item-container .inventory-item {
+            flex-basis: calc(100% - 16px * 2 / 3);
+        }
+
+        .search-container .filter-input-group select,
+        .search-container .sub-tag-select select {
+            font-size: 18px;
+        }
+
+        .search-container .filter-input-group {
+            margin-right: 10px;
+        }
+
+        .search-container .items-matched-count {
+            margin-right: 20px;
+        }
+
+        .inventory-item .inventory-item__quantity {
+            font-size: 8px;
+        }
+
+        .inventory-item .inventory-item__name {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .inventory-item .inventory-item__price {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+    }
+}

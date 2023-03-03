@@ -5,13 +5,6 @@ $secondary-color: #6c757d; // set secondary color to gray
 @import "../inventory/inventory.scss";
 @import "../inventory/spotlight/spotlight.scss";
 
-.page {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-    background-color: $secondary-color; // set page background to secondary color
-}
-
 html,
 body {
     margin: 0;

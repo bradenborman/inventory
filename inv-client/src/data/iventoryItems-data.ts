@@ -10,6 +10,7 @@ PokemonSubMap.set("Pokemon", [
 const SportsSubMap = new Map<string, string[][]>();
 SportsSubMap.set("Sports", [
     ["Major Sports", "Football", "Basketball", "Baseball", "Hockey"],
+    ["Media", "Newspaper", "Magazine", "Card", "Photo"],
 ])
 
 
@@ -412,6 +413,87 @@ export const inventoryItems: iInventoryItem[] = [
         image: "https://fanatics.frgimages.com/brooks-robinson-baltimore-orioles-autographed-mlb-baseball-with-hof-83-inscription_ss5_p-1791240+pv-1+u-9ui59qomlv2haejuy0ep+v-ve9ri5uykevc0jqak7zs.jpg?_hv=2&w=900",
         tags: ["Sports"],
         subTags: ["Baseball"]
+    },
+    {
+        name: "1959 Hank Aaron Baseball Mag",
+        price: 19.99,
+        quantity: 1,
+        description: "",
+        image: "/img/sports/1959ha.jpg",
+        tags: ["Sports"],
+        subTags: ["Baseball", "Magazine"]
+    },
+    {
+        name: "Stan Musial Advertsing",
+        price: 19.99,
+        quantity: 1,
+        description: "",
+        image: "/img/sports/musial-ad-1.jpg",
+        tags: ["Sports"],
+        subTags: ["Baseball", "Newspaper"]
+    },
+    {
+        name: "Stan Musial Advertsing",
+        price: 19.99,
+        quantity: 1,
+        description: "",
+        image: "/img/sports/musial-ad-2.jpg",
+        tags: ["Sports"],
+        subTags: ["Baseball", "Newspaper"]
+    },
+    {
+        name: "Lou Brock Photo",
+        price: 19.99,
+        quantity: 1,
+        description: "",
+        image: "/img/sports/brock-photo.jpg",
+        tags: ["Sports"],
+        subTags: ["Baseball", "Photo"]
+    },
+    {
+        name: "Warren Spahn Photo",
+        price: 19.99,
+        quantity: 1,
+        description: "",
+        image: "/img/sports/wspahn.jpg",
+        tags: ["Sports"],
+        subTags: ["Baseball", "Photo"]
+    },
+    {
+        name: "Brooks Robinson Photo",
+        price: 19.99,
+        quantity: 1,
+        description: "",
+        image: "/img/sports/brobinson.jpg",
+        tags: ["Sports"],
+        subTags: ["Baseball", "Photo"]
+    },
+    {
+        name: "Mickey Mantle Photo",
+        price: 19.99,
+        quantity: 1,
+        description: "",
+        image: "/img/sports/mmantle.jpg",
+        tags: ["Sports"],
+        subTags: ["Baseball", "Photo"]
+    },
+    {
+        name: "Billy Williams Photo",
+        price: 19.99,
+        quantity: 1,
+        description: "",
+        image: "/img/sports/bwilliams.jpg",
+        tags: ["Sports"],
+        subTags: ["Baseball", "Photo"]
+    },
+    {
+        name: "Hank Aaron Photo (Black/white)",
+        price: 19.99,
+        quantity: 1,
+        description: "",
+        image: "/img/sports/haaron.jpg",
+        tags: ["Sports"],
+        subTags: ["Baseball", "Photo"]
     },
     {
         name: "Modern Warfare 2",
