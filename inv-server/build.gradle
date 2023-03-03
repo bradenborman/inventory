@@ -58,14 +58,14 @@ jar {
 	enabled = false
 }
 
-
-//doesnt work lol
 task finalizeBuild(type: Copy) {
 	dependsOn 'build'
+
+	println "Renaming jar.."
 	from "${buildDir}/libs/inv-server-${version}.jar"
 	into "${buildDir}/libs"
-	rename "inv-server-${version}.war", "inventory.jar"
-	delete "inv-server-${version}.war"
+	rename "inv-server-${version}.jar", "inventory.jar"
+	delete "inv-server-${version}.jar"
 }
 
 processResources.dependsOn(copyClient)
