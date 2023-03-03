@@ -5,9 +5,9 @@ export const inventoryItems: iInventoryItem[] = [
         name: "Machamp",
         price: 38.99,
         quantity: 2,
-        description: "First Ed Machamp",
+        description: "The first edition machamp came standard in every starter set for base set for all print runs.",
         image: "/img/machamp.jpg",
-        tags: ["Pokemon", "Holo", "First-Ed"],
+        tags: ["Pokemon", "Holo", "First-Edition"],
     },
     {
         name: "Hitmonchan",
@@ -15,7 +15,7 @@ export const inventoryItems: iInventoryItem[] = [
         quantity: 1,
         description: "First Ed Hitmonchan",
         image: "/img/hitmonchan.jpg",
-        tags: ["Pokemon", "Holo", "First-Ed"],
+        tags: ["Pokemon", "Holo", "First-Edition"],
     },
     {
         name: "Tyranitar",
@@ -23,7 +23,7 @@ export const inventoryItems: iInventoryItem[] = [
         quantity: 1,
         description: "Tyranitar",
         image: "/img/tyranitar.jpg",
-        tags: ["Pokemon", "Holo", "First-Ed"],
+        tags: ["Pokemon", "Holo"],
     },
     {
         name: "Ho-oh",
@@ -31,7 +31,7 @@ export const inventoryItems: iInventoryItem[] = [
         quantity: 1,
         description: "Ho-Oh",
         image: "/img/hooh.jpg",
-        tags: ["Pokemon", "First-Ed"],
+        tags: ["Pokemon", "First-Edition"],
     },
     {
         name: "Entei",
@@ -39,7 +39,7 @@ export const inventoryItems: iInventoryItem[] = [
         quantity: 1,
         description: "Entei",
         image: "/img/entei.jpg",
-        tags: ["Pokemon", "First-Ed"],
+        tags: ["Pokemon", "First-Edition"],
     },
     {
         name: "Feraligartr",
@@ -47,7 +47,7 @@ export const inventoryItems: iInventoryItem[] = [
         quantity: 1,
         description: "",
         image: "/img/feraligartr.jpg",
-        tags: ["Pokemon"],
+        tags: ["Pokemon", "Holo", "First-Edition"],
     },
     {
         name: "Raichu",
@@ -55,7 +55,7 @@ export const inventoryItems: iInventoryItem[] = [
         quantity: 1,
         description: "Raichu",
         image: "/img/raichu.jpg",
-        tags: ["Pokemon"],
+        tags: ["Pokemon", "Holo", "First-Edition"],
     },
     {
         name: "Pichu",
@@ -63,7 +63,7 @@ export const inventoryItems: iInventoryItem[] = [
         quantity: 1,
         description: "Pichu",
         image: "/img/pichu.jpg",
-        tags: ["Pokemon"],
+        tags: ["Pokemon", "Holo", "First-Edition"],
     },
     {
         name: "Zapdos",
@@ -71,7 +71,7 @@ export const inventoryItems: iInventoryItem[] = [
         quantity: 1,
         description: "Zapdos",
         image: "/img/zapdos.jpg",
-        tags: ["Pokemon"],
+        tags: ["Pokemon", "Holo", "First-Edition"],
     },
     {
         name: "Articuno",
@@ -79,7 +79,7 @@ export const inventoryItems: iInventoryItem[] = [
         quantity: 1,
         description: "Articuno",
         image: "/img/articuno.jpg",
-        tags: ["Pokemon"],
+        tags: ["Pokemon", "Holo"],
     },
     {
         name: "Dark Raichu",
@@ -87,7 +87,7 @@ export const inventoryItems: iInventoryItem[] = [
         quantity: 1,
         description: "Dark Raichu",
         image: "/img/dark-raichu.jpg",
-        tags: ["Pokemon"],
+        tags: ["Pokemon", "Holo", "First-Edition"],
     },
     {
         name: "Politoed",
@@ -95,7 +95,7 @@ export const inventoryItems: iInventoryItem[] = [
         quantity: 1,
         description: "Politoed",
         image: "/img/politoed.jpg",
-        tags: ["Pokemon"],
+        tags: ["Pokemon", "Holo", "First-Edition"],
     },
     {
         name: "Suicune",
@@ -103,6 +103,6 @@ export const inventoryItems: iInventoryItem[] = [
         quantity: 1,
         description: "Suicune",
         image: "/img/suicune.jpg",
-        tags: ["Pokemon"],
+        tags: ["Pokemon", "First-Edition"],
     }
 ];

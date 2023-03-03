@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import { iInventoryItem } from '../../../models/inventoryItem';
 
@@ -30,12 +31,12 @@ const Spotlight: React.FC<SpotlightItemProps> = ({
                 <p className='description'>{description}</p>
                 <ul>
                     {tags.map(tag => (
-                        <li key={tag}>{tag}</li>
+                        <li className={classNames({ "holo": tag.toLowerCase() == "holo" })} key={tag}>{tag}</li>
                     ))}
                 </ul>
 
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -35,6 +35,41 @@
         justify-content: center;
         overflow: auto;
 
+        .search-container {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid black;
+            width: 100%;
+            max-height: 60px;
+            position: sticky;
+            top: 0px;
+            z-index: 99;
+            text-align: right;
+
+
+            .filter-input-group {
+                display: inline-block;
+
+                font-size: 22px;
+                margin: 7px 30px 7px 0px;
+
+                label {
+                    margin-right: 5px;
+                }
+
+                select {
+                    font-size: 22px;
+                    padding: 3px 10px;
+                }
+            }
+
+            .items-matched-count {
+                display: inline-block;
+                margin-right: 50px;
+                font-size: 22px;
+            }
+
+        }
+
         .inventory-item {
             background-color: #fff;
             border: 1px solid #ccc;
@@ -98,6 +133,7 @@
                 &:not(:last-child) {
                     margin-right: 8px;
                 }
+
             }
 
             &__image {
