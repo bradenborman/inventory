@@ -1,5 +1,5 @@
 import React from 'react';
-import { iInventoryItem } from '../../data/inventoryItem';
+import { iInventoryItem } from '../../models/inventoryItem';
 import './InventoryItem.scss';
 
 export interface InventoryItemProps extends iInventoryItem {

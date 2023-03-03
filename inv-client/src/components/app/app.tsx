@@ -2,8 +2,9 @@ import React, { useState, useMemo } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import InventoryItem, { InventoryItemProps } from '../inventory/inventoryItem';
 import classNames from 'classnames';
-import { iInventoryItem } from '../../data/inventoryItem';
-import { inventoryItems } from '../../iventoryItems-data';
+import { iInventoryItem } from '../../models/inventoryItem';
+import { inventoryItems } from '../../data/iventoryItems-data';
+import Spotlight from '../inventory/spotlight/spotlight';
 require('./app.scss');
 
 const App: React.FC = () => {
@@ -32,15 +33,13 @@ const App: React.FC = () => {
     });
 
     const spotlightItemJSX: JSX.Element | null = useMemo(() => {
-        let element;
         if (spotlightItem == null)
-            element = <></>
-        else
-            element = <>{spotlightItem.name}</>
+            return null;
         return (
-            <div className='spotlight'>
-                {element}
-            </div>
+            <Spotlight tags={["Baseball", "Auto"]} name={spotlightItem.name} quantity={spotlightItem.quantity} price={spotlightItem.price}
+                description={spotlightItem.description} image={spotlightItem.image}
+                onClose={e => setSpotlightItem(null)}
+            />
         )
     }, [spotlightItem]);
 
