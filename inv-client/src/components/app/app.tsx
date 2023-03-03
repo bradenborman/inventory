@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
     const [spotlightItem, setSpotlightItem] = useState<iInventoryItem>(null);
 
-    const [subTagFilterMap, setSubTagFilterMap] = useState<Map<string, string[]>>(null);
+    const [subTagFilterMap, setSubTagFilterMap] = useState<Map<string, string[][]>>(null);
 
     const [selectedTagFilter, setSelectedTagFilter] = useState<string>("All");
     const [selectedSubTagFilter, setSelectedSubTagFilter] = useState<string>("All");
@@ -85,11 +85,25 @@ const App: React.FC = () => {
     const subTagsOptions: JSX.Element = useMemo(() => {
         if (subTagFilterMap == null) return null;
 
-        const options: JSX.Element[] = subTagFilterMap.get(selectedTagFilter).map((itemInArray: string, index: number) => {
-            return (
-                <option key={index} value={itemInArray}>{itemInArray}</option>
+        const allTypeGroupings: string[][] = subTagFilterMap.get(selectedTagFilter)
+
+        const options: JSX.Element[] = [];
+
+        allTypeGroupings.forEach((group: string[]) => {
+            const groupOptions: JSX.Element[] = group.map((itemInArray: string, index: number) => {
+                return index > 0 ? <option key={index} value={itemInArray}>{itemInArray}</option> : null
+            })
+
+            const optgroup: JSX.Element = (
+                <optgroup label={group[0]}>
+                    {groupOptions}
+                </optgroup>
             )
-        })
+
+            options.push(optgroup)
+
+        });
+
 
         return (
             <div className='sub-tag-select'>
@@ -106,8 +120,10 @@ const App: React.FC = () => {
     const handleTagChange = (e: any): void => {
         const selectedNewFilter: string = e.target.value;
 
-        const subTypeMatch: Map<string, string[]> | undefined = allSubTypeMaps
-            .find((map: Map<string, string[]>) => map.has(selectedNewFilter))
+        const subTypeMatch: Map<string, string[][]> | undefined = allSubTypeMaps
+            .find((map: Map<string, string[][]>) => {
+                return map.has(selectedNewFilter)
+            })
 
         if (subTypeMatch != undefined)
             setSubTagFilterMap(subTypeMatch)
