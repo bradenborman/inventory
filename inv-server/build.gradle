@@ -54,6 +54,11 @@ task copyClient(dependsOn: ":inv-client:clientBuild") {
 	}
 }
 
+jar {
+	enabled = false
+}
+
+
 //doesnt work lol
 task finalizeBuild(type: Copy) {
 	dependsOn 'build'
