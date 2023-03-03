@@ -34,12 +34,13 @@
         width: 100%;
         justify-content: center;
         overflow: auto;
+        overflow-y: scroll;
 
         .search-container {
             background-color: #FFFFFF;
             border-bottom: 1px solid black;
             width: 100%;
-            max-height: 60px;
+            max-height: 80px;
             position: sticky;
             top: 0px;
             z-index: 99;
@@ -66,6 +67,12 @@
                 display: inline-block;
                 margin-right: 50px;
                 font-size: 22px;
+            }
+
+            .sub-tag-select {
+                font-size: 14px;
+                margin-right: 60px;
+                margin-bottom: 10px;
             }
 
         }

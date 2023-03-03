@@ -4,5 +4,6 @@ export interface iInventoryItem {
     price: number;
     description: string;
     tags?: string[];
+    subTags?: string[]
     image?: string;
 }

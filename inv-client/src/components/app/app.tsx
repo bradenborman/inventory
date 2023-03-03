@@ -3,14 +3,18 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import InventoryItem, { InventoryItemProps } from '../inventory/inventoryItem';
 import classNames from 'classnames';
 import { iInventoryItem } from '../../models/inventoryItem';
-import { inventoryItems } from '../../data/iventoryItems-data';
+import { allSubTypeMaps, inventoryItems } from '../../data/iventoryItems-data';
 import Spotlight from '../inventory/spotlight/spotlight';
 require('./app.scss');
 
 const App: React.FC = () => {
 
     const [spotlightItem, setSpotlightItem] = useState<iInventoryItem>(null);
-    const [tagFilter, setTagFilter] = useState<string>("All");
+
+    const [subTagFilterMap, setSubTagFilterMap] = useState<Map<string, string[]>>(null);
+
+    const [selectedTagFilter, setSelectedTagFilter] = useState<string>("All");
+    const [selectedSubTagFilter, setSelectedSubTagFilter] = useState<string>("All");
 
     const handleSpotLightChange = (itemToSpotLight: iInventoryItem): void => {
         setSpotlightItem(itemToSpotLight);
@@ -19,10 +23,15 @@ const App: React.FC = () => {
 
     const items: JSX.Element[] = useMemo(() => {
         return inventoryItems.filter((item: iInventoryItem) => {
-            if (tagFilter == "All")
+            if (selectedTagFilter == "All")
                 return true;
             else {
-                return item?.tags.includes(tagFilter)
+                if (selectedSubTagFilter == "All") {
+                    return item?.tags.includes(selectedTagFilter)
+                }
+                else {
+                    return item?.subTags?.includes(selectedSubTagFilter)
+                }
             }
         })
             .map((item: any, index: React.Key) => {
@@ -40,7 +49,7 @@ const App: React.FC = () => {
                     />
                 )
             });
-    }, [tagFilter]);
+    }, [selectedTagFilter, selectedSubTagFilter]);
 
 
     const spotlightItemJSX: JSX.Element | null = useMemo(() => {
@@ -73,8 +82,40 @@ const App: React.FC = () => {
     const uniqueTags: JSX.Element[] = useMemo(() => determineTagValues(inventoryItems), [inventoryItems]);
 
 
+    const subTagsOptions: JSX.Element = useMemo(() => {
+        if (subTagFilterMap == null) return null;
+
+        const options: JSX.Element[] = subTagFilterMap.get(selectedTagFilter).map((itemInArray: string, index: number) => {
+            return (
+                <option key={index} value={itemInArray}>{itemInArray}</option>
+            )
+        })
+
+        return (
+            <div className='sub-tag-select'>
+                <select onChange={(e: any) => setSelectedSubTagFilter(e.target.value)}>
+                    <option key={-1} value="All">All</option>
+                    {options}
+                </select>
+            </div>
+        )
+
+    }, [selectedTagFilter, subTagFilterMap])
+
+
     const handleTagChange = (e: any): void => {
-        setTagFilter(e.target.value)
+        const selectedNewFilter: string = e.target.value;
+
+        const subTypeMatch: Map<string, string[]> | undefined = allSubTypeMaps
+            .find((map: Map<string, string[]>) => map.has(selectedNewFilter))
+
+        if (subTypeMatch != undefined)
+            setSubTagFilterMap(subTypeMatch)
+        else
+            setSubTagFilterMap(null)
+
+        setSelectedTagFilter(selectedNewFilter)
+        setSelectedSubTagFilter("All")
     }
 
     return (
@@ -86,15 +127,16 @@ const App: React.FC = () => {
                             {spotlightItemJSX}
                             <div className='inventory-item-container'>
                                 <div className='search-container'>
-                                    <div className='filter-input-group'>
-                                        <label htmlFor='tag-select'>Filter:</label>
-                                        <select id="tag-select" value={tagFilter} onChange={handleTagChange}>
-                                            {uniqueTags}
-                                        </select>
-                                    </div>
                                     <div className='items-matched-count'>
                                         ({items.length} items)
                                     </div>
+                                    <div className='filter-input-group'>
+                                        <label htmlFor='tag-select'>Filter:</label>
+                                        <select id="tag-select" value={selectedTagFilter} onChange={handleTagChange}>
+                                            {uniqueTags}
+                                        </select>
+                                    </div>
+                                    {subTagsOptions}
                                 </div>
                                 {items}
                             </div>
