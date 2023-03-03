@@ -1,6 +1,5 @@
 import React from 'react';
 import { iInventoryItem } from '../../models/inventoryItem';
-import './InventoryItem.scss';
 
 export interface InventoryItemProps extends iInventoryItem {
     handleClick: (e: any) => void;
