@@ -8,15 +8,30 @@ PokemonSubMap.set("Pokemon", [
 ])
 
 const SportsSubMap = new Map<string, string[][]>();
-PokemonSubMap.set("Sports", [
-    ["Major Sports", "Football", "Basketball", "Baseball", "Hockey"]
+SportsSubMap.set("Sports", [
+    ["Major Sports", "Football", "Basketball", "Baseball", "Hockey"],
+])
+
+
+const VideoGamesSubMap = new Map<string, string[][]>();
+VideoGamesSubMap.set("Video Game", [
+    ["System", "PS2", "PS3", "PS4", "PS5", "Nintendo 64", "Gamecube", "Wii", "Wii U", "Switch", "Gameboy", "Gameboy Color", "Gameboy Advance", "DS"],
+    ["Genre", "Sports", "Shooter", "Simulation"],
+    ["Media Tpye", "Phyical", "Download"]
+])
+
+const HouseItemsSubMap = new Map<string, string[][]>();
+HouseItemsSubMap.set("Home", [
+    ["Furniture", "Misc"],
 ])
 
 
 
 export const allSubTypeMaps: Map<string, string[][]>[] = [
     PokemonSubMap,
-    SportsSubMap
+    SportsSubMap,
+    VideoGamesSubMap,
+    HouseItemsSubMap
 ];
 
 export const inventoryItems: iInventoryItem[] = [
@@ -397,5 +412,23 @@ export const inventoryItems: iInventoryItem[] = [
         image: "https://fanatics.frgimages.com/brooks-robinson-baltimore-orioles-autographed-mlb-baseball-with-hof-83-inscription_ss5_p-1791240+pv-1+u-9ui59qomlv2haejuy0ep+v-ve9ri5uykevc0jqak7zs.jpg?_hv=2&w=900",
         tags: ["Sports"],
         subTags: ["Baseball"]
+    },
+    {
+        name: "Modern Warfare 2",
+        price: 99,
+        quantity: 1,
+        description: "",
+        image: "https://upload.wikimedia.org/wikipedia/en/5/52/Call_of_Duty_Modern_Warfare_2_%282009%29_cover.png",
+        tags: ["Video Game"],
+        subTags: ["Shooter", "PS3", "Phyical"]
+    },
+    {
+        name: "Display Case",
+        price: 180,
+        quantity: 1,
+        description: "Tidy way to showoff items",
+        image: "https://storefixturesandsupplies.com/wp-content/uploads/2017/05/Aluminum-extra-full-vision-display-case-showcases.png",
+        tags: ["Home"],
+        subTags: ["Misc"]
     }
 ];

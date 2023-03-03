@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { iInventoryItem } from '../../models/inventoryItem';
 import { allSubTypeMaps, inventoryItems } from '../../data/iventoryItems-data';
 import Spotlight from '../inventory/spotlight/spotlight';
+import { movePokemonEntriesToBottom } from '../../utilities/utilties';
 require('./app.scss');
 
 const App: React.FC = () => {
@@ -34,6 +35,7 @@ const App: React.FC = () => {
                 }
             }
         })
+            .sort(movePokemonEntriesToBottom)
             .map((item: any, index: React.Key) => {
                 return (
                     <InventoryItem
