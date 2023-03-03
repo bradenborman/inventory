@@ -144,7 +144,7 @@ export const inventoryItems: iInventoryItem[] = [
         description: "",
         image: "/img/cards/pokemon/muk.jpg",
         tags: ["Pokemon"],
-        subTags: ["Grass", "Posion"]
+        subTags: ["Grass", "Poison"]
     },
     {
         name: "Raikou",
@@ -227,15 +227,168 @@ export const inventoryItems: iInventoryItem[] = [
         tags: ["Pokemon"],
         subTags: ["Steel"]
     },
-    // {
-    //     name: "",
-    //     price: 20,
-    //     quantity: 1,
-    //     description: "",
-    //     image: "/img/cards/pokemon/",
-    //     tags: ["Pokemon"],
-    //     subTags: []
-    // },
+    {
+        name: "Sneasel",
+        price: 20,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/sneasel.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Dark", "Holo"]
+    },
+    {
+        name: "Dark Dugtrio",
+        price: 20,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/dark-dugtrio.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Dark", "Ground"]
+    },
+    {
+        name: "Hitmonlee",
+        price: 20,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/hitmonlee.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Fighting"]
+    },
+    {
+        name: "Heracross",
+        price: 20,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/heracross.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Grass", "Bug", "Holo"]
+    },
+    {
+        name: "Butterfree",
+        price: 20,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/butterfree.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Grass", "Bug"]
+    },
+    {
+        name: "Scyther",
+        price: 20,
+        quantity: 1,
+        description: "Scyther",
+        image: "/img/cards/pokemon/scyther.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Grass", "Bug", "Holo"]
+    },
+    {
+        name: "Vileplume",
+        price: 20,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/vileplume.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Grass", "Poison"]
+    },
+    {
+        name: "Vileplume",
+        price: 20,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/vileplume-e.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Grass", "Poison"]
+    },
+    {
+        name: "Jumpfluff",
+        price: 20,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/jumpfluff.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Grass", "Holo"]
+    },
+    {
+        name: "Dark Arbok",
+        price: 20,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/dark-arbok.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Dark", "Poison"]
+    },
+    {
+        name: "Mr Mime",
+        price: 20,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/mrmime.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Psychic"]
+    },
+    {
+        name: "Unown",
+        price: 20,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/unown.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Psychic"]
+    },
+    {
+        name: "Mewtwo",
+        price: 20,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/mewtwo.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Psychic"]
+    },
+    {
+        name: "Wallop Deck",
+        price: 100,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/wallop-deck.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Deck"]
+    },
+    {
+        name: "Lockdown Deck",
+        price: 140,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/lockdown-deck.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Deck"]
+    },
+    {
+        name: "Devastation Deck",
+        price: 140,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/devastation-deck.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Deck"]
+    },
+    {
+        name: "OG deck",
+        price: 250,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/twoperson-deck.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Deck"]
+    },
+    {
+        name: "Water-Blast Deck",
+        price: 225,
+        quantity: 1,
+        description: "",
+        image: "/img/cards/pokemon/water-blast-deck.jpg",
+        tags: ["Pokemon"],
+        subTags: ["Deck"]
+    },
     {
         name: "Autographed Basball Brooks Robinson",
         price: 99,
