@@ -34,6 +34,7 @@ const Inventory: React.FC = () => {
             .map((item: iInventoryItem, index: number) => {
                 return (
                     <InventoryItem
+                        delayAmount={index}
                         key={index}
                         name={item.name}
                         description={item.description}

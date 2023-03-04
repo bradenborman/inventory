@@ -2,6 +2,7 @@ import React from 'react';
 import { iInventoryItem } from '../../models/inventoryItem';
 
 export interface InventoryItemProps extends iInventoryItem {
+    delayAmount: number;
     handleClick: (e: any) => void;
 }
 
@@ -12,10 +13,19 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
     description,
     tags,
     image,
+    delayAmount,
     handleClick
 }) => {
+
+    const delay = delayAmount * 0.1 + 0.1;
+
+    const style: React.CSSProperties = {
+        animationDelay: `${delay}s`
+    }
+
+
     return (
-        <div className="inventory-item" onClick={handleClick}>
+        <div className="inventory-item" onClick={handleClick} style={style}>
             <div className="inventory-item__header" />
             <div className="inventory-item__details">
                 <div className="inventory-item__name">{name}</div>

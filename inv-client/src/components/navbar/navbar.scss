@@ -1,19 +1,11 @@
-nav {
-    background-color: $primary-color; // set navbar background to primary color
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    font-size: 1.2rem;
+.navbar {
+    background: linear-gradient(45deg, #1d1d1d, #222);
+}
 
-    a {
-        color: white;
-        text-decoration: none;
-        margin-right: 1rem;
-    }
-
-    .active {
-        font-weight: bold;
-    }
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-left: 10px;
+    font-family: "Roboto", sans-serif;
+    color: #f8f9fa;
 }
