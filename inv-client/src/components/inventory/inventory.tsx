@@ -34,6 +34,8 @@ const Inventory: React.FC = () => {
             .map((item: iInventoryItem, index: number) => {
                 return (
                     <InventoryItem
+                        tabindex={index}
+                        spotlighted={(spotlightItem != null) && item.name == spotlightItem.name}
                         delayAmount={index}
                         key={index}
                         name={item.name}
@@ -47,7 +49,7 @@ const Inventory: React.FC = () => {
                     />
                 )
             });
-    }, [selectedTagFilter, selectedSubTagFilter]);
+    }, [selectedTagFilter, selectedSubTagFilter, spotlightItem]);
 
 
     const spotlightItemJSX: JSX.Element | null = useMemo(() => {

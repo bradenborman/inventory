@@ -2,14 +2,16 @@ import React from "react";
 
 interface NavbarProps { }
 
-const Navbar: React.FC<NavbarProps> = () => {
-    return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a className="navbar-brand" href="#">
-                Braden's Inventory
-            </a>
-        </nav>
-    );
-};
+class Navbar extends React.Component<NavbarProps> {
+    render() {
+        return (
+            <nav className="navbar">
+                <a className="navbar-brand" href="/">
+                    Braden's Inventory
+                </a>
+            </nav>
+        );
+    }
+}
 
 export default Navbar;

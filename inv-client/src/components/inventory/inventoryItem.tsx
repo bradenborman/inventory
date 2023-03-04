@@ -1,12 +1,17 @@
-import React from 'react';
+import classNames from 'classnames';
+import React, { useRef } from 'react';
 import { iInventoryItem } from '../../models/inventoryItem';
 
 export interface InventoryItemProps extends iInventoryItem {
+    tabindex: number;
+    spotlighted: boolean;
     delayAmount: number;
     handleClick: (e: any) => void;
 }
 
 const InventoryItem: React.FC<InventoryItemProps> = ({
+    spotlighted,
+    tabindex,
     name,
     quantity,
     price,
@@ -17,15 +22,33 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
     handleClick
 }) => {
 
-    const delay = delayAmount * 0.1 + 0.1;
+    const myComponentRef = useRef(null);
 
+    const handleFocus = (event: any) => {
+        const focusedDiv = event.target;
+        const handleKeyPress = (event: any) => {
+            if (event.key === 'Enter') {
+                myComponentRef.current.click();
+            }
+        };
+
+        focusedDiv.addEventListener('keydown', handleKeyPress);
+
+        const handleBlur = () => {
+            focusedDiv.removeEventListener('keydown', handleKeyPress);
+        };
+
+        focusedDiv.addEventListener('blur', handleBlur);
+    };
+
+
+    const delay = delayAmount * 0.1 + 0.1;
     const style: React.CSSProperties = {
         animationDelay: `${delay}s`
     }
 
-
     return (
-        <div className="inventory-item" onClick={handleClick} style={style}>
+        <div className={classNames("inventory-item", { "spotlighted": spotlighted })} onClick={handleClick} style={style} tabIndex={tabindex} onFocus={handleFocus} ref={myComponentRef}>
             <div className="inventory-item__header" />
             <div className="inventory-item__details">
                 <div className="inventory-item__name">{name}</div>
