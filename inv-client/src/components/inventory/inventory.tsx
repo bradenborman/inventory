@@ -1,15 +1,27 @@
 import classNames from 'classnames';
 import React, { useMemo, useState } from 'react';
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { faSortUp, faSortDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
 import { inventoryItems, allSubTypeMaps } from '../../data/iventoryItems-data';
 import { iInventoryItem } from '../../models/inventoryItem';
-import { movePokemonEntriesToBottom } from '../../utilities/utilties';
 import InventoryItem from './inventoryItem';
 import Spotlight from './spotlight/spotlight';
+import { sort } from '../../utilities/utilties';
+import ItemCount from './itemCount';
+
+
+export const SortOrder = {
+    ASCENDING: "ascending",
+    DESCENDING: "descending",
+};
 
 const Inventory: React.FC = () => {
 
     const [spotlightItem, setSpotlightItem] = useState<iInventoryItem>(null);
-
+    const [sortOrder, setSortOrder] = useState<string>(SortOrder.ASCENDING);
     const [subTagFilterMap, setSubTagFilterMap] = useState<Map<string, string[][]>>(null);
 
     const [selectedTagFilter, setSelectedTagFilter] = useState<string>("All");
@@ -18,7 +30,6 @@ const Inventory: React.FC = () => {
     const handleSpotLightChange = (itemToSpotLight: iInventoryItem): void => {
         setSpotlightItem(itemToSpotLight);
     }
-
 
     const items: JSX.Element[] = useMemo(() => {
         return inventoryItems.filter((item: iInventoryItem) => {
@@ -30,7 +41,7 @@ const Inventory: React.FC = () => {
                     : item?.subTags?.includes(selectedSubTagFilter);
             }
         })
-            .sort(movePokemonEntriesToBottom)
+            .sort((a, b) => sort(sortOrder, a, b))
             .map((item: iInventoryItem, index: number) => {
                 return (
                     <InventoryItem
@@ -49,7 +60,8 @@ const Inventory: React.FC = () => {
                     />
                 )
             });
-    }, [selectedTagFilter, selectedSubTagFilter, spotlightItem]);
+
+    }, [selectedTagFilter, selectedSubTagFilter, spotlightItem, sortOrder]);
 
 
     const spotlightItemJSX: JSX.Element | null = useMemo(() => {
@@ -108,7 +120,7 @@ const Inventory: React.FC = () => {
             });
 
             return (
-                <div className="sub-tag-select">
+                <div className={classNames("sub-tag-select")}>
                     <select onChange={(e) => setSelectedSubTagFilter(e.target.value)}>
                         <option key={-1} value="All">
                             All
@@ -121,6 +133,12 @@ const Inventory: React.FC = () => {
 
         return subTagOptions;
     };
+
+
+    function handleSortChangeClick(e: any) {
+        let newOrder: string = sortOrder === SortOrder.ASCENDING ? SortOrder.DESCENDING : SortOrder.ASCENDING
+        setSortOrder(newOrder);
+    }
 
 
     const handleTagChange = (e: any): void => {
@@ -145,10 +163,13 @@ const Inventory: React.FC = () => {
             {spotlightItemJSX}
             <div className='inventory-item-container'>
                 <div className='search-container'>
-                    <div className='items-matched-count'>
-                        ({items.length} items)
+                    <div className={classNames('items-matched-count', 'search-control')}>
+                        < ItemCount totalCount={items.length} />
                     </div>
-                    <div className='filter-input-group'>
+                    <div className={classNames('sort-by-price', 'search-control')} onClick={handleSortChangeClick}>
+                        Price <FontAwesomeIcon className={classNames("icon", { "down": sortOrder != SortOrder.ASCENDING })} icon={faSortUp} />
+                    </div>
+                    <div className={classNames('filter-input-group', 'search-control')}>
                         <label htmlFor='tag-select'>Filter:</label>
                         <select id="tag-select" value={selectedTagFilter} onChange={handleTagChange}>
                             {uniqueTags}

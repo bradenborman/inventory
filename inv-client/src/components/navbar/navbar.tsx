@@ -7,7 +7,7 @@ class Navbar extends React.Component<NavbarProps> {
         return (
             <nav className="navbar">
                 <a className="navbar-brand" href="/">
-                    Braden's Inventory
+                    Borman's Inventory
                 </a>
             </nav>
         );

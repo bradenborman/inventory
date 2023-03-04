@@ -50,7 +50,7 @@ const LandingPage = () => (
         <Title>Braden's inventory</Title>
         <Quote>"Success is not final, failure is not fatal: It is the courage to continue that counts." - Winston Churchill</Quote>
         <LinkWrapper>
-            <NavLink to="/inventory">See Stockpile</NavLink>
+            <NavLink to="/inventory">See Items</NavLink>
         </LinkWrapper>
     </Container>
 );
