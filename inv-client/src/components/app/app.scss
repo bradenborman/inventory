@@ -3,7 +3,9 @@ $secondary-color: #6c757d; // set secondary color to gray
 
 @import "../navbar/navbar.scss";
 @import "../inventory/inventory.scss";
-@import "../inventory/spotlight/spotlight.scss";
+@import "../inventory/components/spotlight/spotlight.scss";
+@import "../additem/addItemPage.scss";
+@import "../landingpage/landingPage.scss";
 
 html,
 body {

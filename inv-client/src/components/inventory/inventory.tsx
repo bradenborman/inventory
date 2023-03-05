@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { inventoryItems, allSubTypeMaps } from '../../data/iventoryItems-data';
 import { iInventoryItem } from '../../models/inventoryItem';
-import InventoryItem from './inventoryItem';
-import Spotlight from './spotlight/spotlight';
-import { sort } from '../../utilities/utilties';
-import ItemCount from './itemCount';
+import Spotlight from './components/spotlight/spotlight';
+import { sort, sortAlphabetically } from '../../utilities/utilties';
+import ItemCount from './components/itemCount';
+import InventoryItem from './components/inventoryItem';
 
 
 export const SortOrder = {
@@ -86,9 +86,11 @@ const Inventory: React.FC = () => {
             })
         })
 
-        return uts.map((tag, index) => {
-            return <option key={index} value={tag}>{tag}</option>
-        })
+        return uts
+            .sort(sortAlphabetically)
+            .map((tag, index) => {
+                return <option key={index} value={tag}>{tag}</option>
+            })
     }
 
     const uniqueTags: JSX.Element[] = useMemo(() => determineTagValues(inventoryItems), [inventoryItems]);

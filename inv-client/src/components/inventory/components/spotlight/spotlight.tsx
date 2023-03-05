@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { iInventoryItem } from '../../../models/inventoryItem';
+import { iInventoryItem } from '../../../../models/inventoryItem';
 
 export interface SpotlightItemProps extends iInventoryItem {
     onClose: (e: any) => void;

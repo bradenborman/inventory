@@ -13,3 +13,7 @@ const sortByAcending = (a: iInventoryItem, b: iInventoryItem): number => {
 const sortByPriceDescending = (a: iInventoryItem, b: iInventoryItem): number => {
     return a.price - b.price
 }
+
+export const sortAlphabetically = (a: string, b: string): number => {
+    return a.localeCompare(b)
+}

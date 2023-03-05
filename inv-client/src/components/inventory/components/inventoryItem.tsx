@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useRef } from 'react';
-import { iInventoryItem } from '../../models/inventoryItem';
+import { iInventoryItem } from '../../../models/inventoryItem';
 
 export interface InventoryItemProps extends iInventoryItem {
     tabindex: number;
