@@ -14,7 +14,7 @@ const ItemCount: React.FC<ItemCountProps> = ({ totalCount }) => {
     }, [itemsAnimationCount]);
 
     useEffect(() => {
-        setItemsAnimationCount(0)
+        setItemsAnimationCount(() => itemsAnimationCount == 0 ? 1 : 0)
     }, [totalCount]);
 
     async function delay(ms: number) {

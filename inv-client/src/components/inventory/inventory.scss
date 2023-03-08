@@ -33,6 +33,7 @@
         height: 100vh;
         width: 100%;
         justify-content: center;
+        align-items: flex-start;
         overflow: auto;
         overflow-y: scroll;
 
@@ -250,5 +251,15 @@
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@keyframes fade-price-change {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
